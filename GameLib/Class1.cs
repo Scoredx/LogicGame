@@ -10,7 +10,6 @@ namespace GameLib
     {
         public static void foo()
         {
-            Console.WriteLine("lol");
         }
     }
 }

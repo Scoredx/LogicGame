@@ -3,11 +3,10 @@ using GameLib;
 
 namespace LogicGame
 {
-	class Game
+	class ClGame
 	{
-		public static void x()
+		public static void Game()
         {
-			Class1.foo();
         }
 	}
 }

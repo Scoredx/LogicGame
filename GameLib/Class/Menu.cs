@@ -9,12 +9,23 @@ namespace LogicGame
     class Menu
     {
         public static void MainMenu()
-        {
-            Console.WriteLine(" Welcome to 2048");
+        {   
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.SetCursorPosition((Console.WindowWidth - " WELCOME TO 2048".Length) / 2, Console.CursorTop);
+            Console.WriteLine(" WELCOME TO 2048");
+            Console.SetCursorPosition((Console.WindowWidth - "      MENU     ".Length) / 2, Console.CursorTop);
             Console.WriteLine("      MENU     ");
-            Console.WriteLine("1.--START GAME--\n2.---OPTIONS---\n3.----EXIT----");
+            Console.SetCursorPosition((Console.WindowWidth - "1.--START GAME--".Length) / 2, Console.CursorTop);
+            Console.WriteLine("1. START GAME    ");
+            Console.SetCursorPosition((Console.WindowWidth - "2.---OPTIONS---".Length) / 2, Console.CursorTop);
+            Console.WriteLine("2.   OPTIONS   ");
+            Console.SetCursorPosition((Console.WindowWidth - "3.----EXIT-----".Length) / 2, Console.CursorTop);
+            Console.WriteLine("3.    EXIT    ");
+            Console.SetCursorPosition((Console.WindowWidth - "(Choose using numbers)".Length) / 2, Console.CursorTop);
             Console.WriteLine("(Choose using numbers)");
+            Console.SetCursorPosition((Console.WindowWidth - "x".Length) / 2, Console.CursorTop);
 
+                
             bool menu = true;
             while (menu)
             {

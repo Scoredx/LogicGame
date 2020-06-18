@@ -6,7 +6,9 @@ namespace LogicGame
     {
         static void Main(string[] args)
         {
-            Game.x();
+            Console.SetWindowSize(30, 15);
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.Clear();
             Menu.MainMenu();
         }
     }

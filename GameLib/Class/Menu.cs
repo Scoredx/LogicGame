@@ -24,8 +24,6 @@ namespace LogicGame
             Console.SetCursorPosition((Console.WindowWidth - "(Choose using numbers)".Length) / 2, Console.CursorTop);
             Console.WriteLine("(Choose using numbers)");
             Console.SetCursorPosition((Console.WindowWidth - "x".Length) / 2, Console.CursorTop);
-
-                
             bool menu = true;
             while (menu)
             {

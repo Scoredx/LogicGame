@@ -6,6 +6,7 @@ namespace LogicGame
     {
         static void Main(string[] args)
         {
+            Game.x();
             Menu.MainMenu();
         }
     }

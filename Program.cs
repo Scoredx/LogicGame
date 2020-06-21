@@ -10,6 +10,7 @@ namespace LogicGame
             Console.BackgroundColor = ConsoleColor.White;
             Console.Clear();
             Menu.MainMenu();
+            Console.Clear();
         }
     }
     

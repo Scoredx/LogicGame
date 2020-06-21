@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using GameLib;
 
 namespace LogicGame
 {
     class Menu
     {
-        public static void MainMenu()
-        {   
+        static void menuText()
+        {
             Console.ForegroundColor = ConsoleColor.Black;
             Console.SetCursorPosition((Console.WindowWidth - " WELCOME TO 2048".Length) / 2, Console.CursorTop);
             Console.WriteLine(" WELCOME TO 2048");
@@ -24,9 +21,28 @@ namespace LogicGame
             Console.SetCursorPosition((Console.WindowWidth - "(Choose using numbers)".Length) / 2, Console.CursorTop);
             Console.WriteLine("(Choose using numbers)");
             Console.SetCursorPosition((Console.WindowWidth - "x".Length) / 2, Console.CursorTop);
+        }
+
+        static void optionsText()
+        {
+            Console.SetCursorPosition((Console.WindowWidth - "Set difficulty level: ".Length) / 2, Console.CursorTop);
+            Console.WriteLine(" Set difficulty level:");
+            Console.SetCursorPosition((Console.WindowWidth - "1.     NORMAL  ".Length) / 2, Console.CursorTop);
+            Console.WriteLine("1.   NORMAL  ");
+            Console.SetCursorPosition((Console.WindowWidth - "2.      HIGH   ".Length) / 2, Console.CursorTop);
+            Console.WriteLine("2.    HIGH    ");
+            Console.SetCursorPosition((Console.WindowWidth - "3.      BACK   ".Length) / 2, Console.CursorTop);
+            Console.WriteLine("2.    BACK   ");
+            
+        }
+
+        public static void MainMenu()
+        {   
             bool menu = true;
             while (menu)
             {
+                menuText();
+                Console.SetCursorPosition((Console.WindowWidth - "x".Length) / 2, Console.CursorTop);
                 string menuInput = Console.ReadLine();
 
                 switch (menuInput)
@@ -42,15 +58,18 @@ namespace LogicGame
                         Environment.Exit(0);
                         break;
                     default:
+                        Console.SetCursorPosition((Console.WindowWidth - "Enter valid option".Length) / 2, Console.CursorTop);
                         Console.WriteLine("Enter valid option");
                         break;
                 }
+                Console.Clear();
             }
         }
 
         static void Options()
         {
-            Console.WriteLine("Set difficulty level: \n1.NORMAL\n2.HIGH\n3.BACK");
+            optionsText();
+            Console.SetCursorPosition((Console.WindowWidth - "x".Length) / 2, Console.CursorTop);
             bool menu = true;
             while (menu)
             {
@@ -69,6 +88,7 @@ namespace LogicGame
                         MainMenu();
                         break;
                     default:
+                        Console.SetCursorPosition((Console.WindowWidth - "Enter valid option".Length) / 2, Console.CursorTop);
                         Console.WriteLine("Enter valid option");
                         break;
                 }

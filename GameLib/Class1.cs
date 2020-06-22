@@ -1,89 +1,60 @@
-﻿using System;
+﻿using LogicGame;
+using System;
+using System.Collections.Generic;
 
 namespace GameLib
 {
     class library
     {
-        public static int Rows;
-        public static int Cols;
-        public static Random rnd = new Random();
-        public static ulong Score;
-        public static ulong[,] Matrix; //matrix 4x4
-        public static bool diff;
-
-        public static void Display()
+        public enum movDirection
         {
-            Console.Clear();
-            Console.WriteLine();
-
-            for (int i = 0; i < Rows; i++)
-            {
-                for (int j = 0; j < Cols; j++)
-                {
-                    using (new Color(GetNumberColor(Matrix[i, j])))
-                    {
-                        Console.Write(string.Format("{0,6}", Matrix[i, j]));
-                    }
-                }
-                Console.WriteLine();
-            }
-
-            Console.WriteLine("Score: " + Score);
-            Console.WriteLine();
+            Up,
+            Right,
+            Down,
+            Left,
         }
-        class Color : IDisposable
+        public class ColorOutput : IDisposable
         {
-            public Color(ConsoleColor fColor, ConsoleColor bColor = ConsoleColor.White)
+            public ColorOutput(ConsoleColor fColor, ConsoleColor bColor = ConsoleColor.DarkGray)
             {
                 Console.ForegroundColor = fColor;
                 Console.BackgroundColor = bColor;
             }
-
             public void Dispose()
             {
                 Console.ResetColor();
             }
         }
-
-        public enum movDirection
-        {
-            Right,
-            Down,
-            Up,
-            Left,
-        }
-
-        public static ConsoleColor GetNumberColor(ulong num) //color of numbers
+        public static ConsoleColor GetColor(ulong num)
         {
             switch (num)
             {
                 case 0:
-                    return ConsoleColor.DarkGray;
+                    return ConsoleColor.Black;
                 case 2:
-                    return ConsoleColor.Gray;
-                case 4:
-                    return ConsoleColor.DarkMagenta;
-                case 8:
-                    return ConsoleColor.Magenta;
-                case 16:
-                    return ConsoleColor.DarkGreen;
-                case 32:
-                    return ConsoleColor.Green;
-                case 64:
-                    return ConsoleColor.DarkYellow;
-                case 128:
-                    return ConsoleColor.Yellow;
-                case 256:
                     return ConsoleColor.DarkCyan;
-                case 512:
+                case 4:
                     return ConsoleColor.Cyan;
+                case 8:
+                    return ConsoleColor.DarkBlue;
+                case 16:
+                    return ConsoleColor.Blue;
+                case 32:
+                    return ConsoleColor.DarkGreen;
+                case 64:
+                    return ConsoleColor.Green;
+                case 128:
+                    return ConsoleColor.DarkYellow;
+                case 256:
+                    return ConsoleColor.Yellow;
+                case 512:
+                    return ConsoleColor.DarkMagenta;
                 case 1024:
-                    return ConsoleColor.DarkRed;
-                case 2048:
-                    return ConsoleColor.Red;
+                    return ConsoleColor.Magenta;
                 default:
                     return ConsoleColor.Red;
             }
         }
     }
 }
+

@@ -4,10 +4,14 @@ using GameLib;
 namespace LogicGame
 {
     class Menu
-    {
+    {   
+        //vars
+        public static bool diff;
+
         static void menuText()
         {
             Console.ForegroundColor = ConsoleColor.Black;
+
             Console.SetCursorPosition((Console.WindowWidth - " WELCOME TO 2048".Length) / 2, Console.CursorTop);
             Console.WriteLine(" WELCOME TO 2048");
             Console.SetCursorPosition((Console.WindowWidth - "      MENU     ".Length) / 2, Console.CursorTop);
@@ -32,60 +36,46 @@ namespace LogicGame
             Console.SetCursorPosition((Console.WindowWidth - "2.      HIGH   ".Length) / 2, Console.CursorTop);
             Console.WriteLine("2.    HIGH    ");
             Console.SetCursorPosition((Console.WindowWidth - "3.      BACK   ".Length) / 2, Console.CursorTop);
-            Console.WriteLine("2.    BACK   ");
-            
-        }
+            Console.WriteLine("3.    BACK   ");
 
+           
+        }
         public static void MainMenu()
-        {   
+        {
             bool menu = true;
             while (menu)
             {
+                //main menu
                 menuText();
-                Console.SetCursorPosition((Console.WindowWidth - "x".Length) / 2, Console.CursorTop);
-                string menuInput = Console.ReadLine();
-
-                switch (menuInput)
+                string menuChoice =  Console.ReadLine();
+                Console.Clear();
+                switch (menuChoice)
                 {
                     case "1":
                         return;
-                        break;
                     case "2":
-                        Options();
-                        menu = false;
+                        //options
+                        optionsText();
+                        string optionsChoice = Console.ReadLine();
+                        Console.Clear();
+                        switch (optionsChoice)
+                        {
+                            case "1":
+                                diff = true;
+                                break;
+                            case "2":
+                                diff = false;
+                                break;
+                            case "3":
+                                return;
+                            default:
+                                Console.SetCursorPosition((Console.WindowWidth - "Enter valid option".Length) / 2, Console.CursorTop);
+                                Console.WriteLine("Enter valid option");
+                                break;
+                        }
                         break;
                     case "3":
                         Environment.Exit(0);
-                        break;
-                    default:
-                        Console.SetCursorPosition((Console.WindowWidth - "Enter valid option".Length) / 2, Console.CursorTop);
-                        Console.WriteLine("Enter valid option");
-                        break;
-                }
-                Console.Clear();
-            }
-        }
-
-        static void Options()
-        {
-            optionsText();
-            Console.SetCursorPosition((Console.WindowWidth - "x".Length) / 2, Console.CursorTop);
-            bool menu = true;
-            while (menu)
-            {
-                string menuInput = Console.ReadLine();
-                switch (menuInput)
-                {
-                    case "1":
-                        library.diff = true;
-                        menu = false;
-                        break;
-                    case "2":
-                        library.diff = false;
-                        menu = false;
-                        break;
-                    case "3":
-                        MainMenu();
                         break;
                     default:
                         Console.SetCursorPosition((Console.WindowWidth - "Enter valid option".Length) / 2, Console.CursorTop);

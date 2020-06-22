@@ -11,6 +11,9 @@ namespace LogicGame
             Console.Clear();
             Menu.MainMenu();
             Console.Clear();
+            ClGame.Game game = new Game();
+            ClGame.Play();
+
         }
     }
     // Filip szewczyk 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,55 @@ namespace GameLib
 {
     class library
     {
-        private static ConsoleColor GetNumberColor(ulong num)
+        public static int Rows;
+        public static int Cols;
+        public static Random rnd = new Random();
+        public static ulong Score;
+        public static ulong[,] Matrix; //matrix 4x4
+        public static bool diff;
+
+        public static void Display()
+        {
+            Console.Clear();
+            Console.WriteLine();
+
+            for (int i = 0; i < Rows; i++)
+            {
+                for (int j = 0; j < Cols; j++)
+                {
+                    using (new Color(GetNumberColor(Matrix[i, j])))
+                    {
+                        Console.Write(string.Format("{0,6}", Matrix[i, j]));
+                    }
+                }
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("Score: " + Score);
+            Console.WriteLine();
+        }
+        class Color : IDisposable
+        {
+            public Color(ConsoleColor fColor, ConsoleColor bColor = ConsoleColor.White)
+            {
+                Console.ForegroundColor = fColor;
+                Console.BackgroundColor = bColor;
+            }
+
+            public void Dispose()
+            {
+                Console.ResetColor();
+            }
+        }
+        public enum movDirection
+        {
+            Right,
+            Down,
+            Up,
+            Left,
+        }
+
+        public static ConsoleColor GetNumberColor(ulong num) //color of numbers
         {
             switch (num)
             {
@@ -39,26 +88,6 @@ namespace GameLib
                 default:
                     return ConsoleColor.Red;
             }
-        }
-
-        class ColorOutput : IDisposable
-        {
-            public ColorOutput(ConsoleColor color)
-            {
-                Console.ForegroundColor = color;
-            }
-            public void Dispose()
-            {
-                Console.ResetColor();
-            }
-        }
-
-        enum movDirection
-        {
-            Right,
-            Down,
-            Up,
-            Left,
         }
     }
 }

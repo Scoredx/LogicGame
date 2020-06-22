@@ -13,5 +13,7 @@ namespace LogicGame
             Console.Clear();
         }
     }
-    
+    // Filip szewczyk 
+    // 12486
+    // konwZ/Lab11
 }

@@ -77,11 +77,11 @@ namespace LogicGame
                 switch (menuInput)
                 {
                     case "1":
-                        //set dif to normal
+                        library.diff = true;
                         menu = false;
                         break;
                     case "2":
-                        //set dif to high
+                        library.diff = false;
                         menu = false;
                         break;
                     case "3":

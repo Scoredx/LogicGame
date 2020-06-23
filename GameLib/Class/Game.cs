@@ -32,7 +32,7 @@ namespace LogicGame
                     using (new library.Color(ConsoleColor.Yellow))
                     {
                         Console.Clear();
-                        Console.WriteLine("\n\n\n\n\n\n");
+                        Console.WriteLine("\n\n\n\n\n");
                         Console.SetCursorPosition((Console.WindowWidth - "YOU WIN".Length) / 2, Console.CursorTop);
                         Console.WriteLine("YOU WIN");
                         Console.SetCursorPosition((Console.WindowWidth - "!!!".Length) / 2, Console.CursorTop);
@@ -53,7 +53,7 @@ namespace LogicGame
                     using (new library.Color(ConsoleColor.Red))
                     {
                         Console.Clear();
-                        Console.WriteLine("\n\n\n\n\n\n");
+                        Console.WriteLine("\n\n\n\n\n");
                         Console.SetCursorPosition((Console.WindowWidth - "YOU LOST".Length) / 2, Console.CursorTop);
                         Console.WriteLine("YOU LOST");
                         Console.SetCursorPosition((Console.WindowWidth - "!!!".Length) / 2, Console.CursorTop);

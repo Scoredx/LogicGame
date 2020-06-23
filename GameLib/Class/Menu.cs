@@ -36,6 +36,7 @@ namespace LogicGame
             Console.SetCursorPosition((Console.WindowWidth - "3.      BACK   ".Length) / 2, Console.CursorTop);
             Console.WriteLine("3.    BACK   ");
         }
+
         public static void MainMenu()
         {
             bool menu = true;
@@ -51,33 +52,31 @@ namespace LogicGame
                         return;
                     case "2":
                         //options
-                        optionsText();
-                        Console.SetCursorPosition((Console.WindowWidth - "x".Length) / 2, Console.CursorTop);
-                        string optionsChoice = Console.ReadLine();
-                        while (optionsChoice == "")
+                        bool options = true;
+                        while (options)
                         {
-                            Console.Clear();
-                            Console.SetCursorPosition((Console.WindowWidth - "Enter valid option".Length) / 2, Console.CursorTop);
-                            Console.WriteLine("Enter valid option");
                             optionsText();
                             Console.SetCursorPosition((Console.WindowWidth - "x".Length) / 2, Console.CursorTop);
-                            optionsChoice = Console.ReadLine();
-                        }
-                        Console.Clear();
-                        switch (optionsChoice)
-                        {
-                            case "1":
-                                diff = true;
-                                break;
-                            case "2":
-                                diff = false;
-                                break;
-                            case "3":
-                                break;
-                            default:
-                                Console.SetCursorPosition((Console.WindowWidth - "Enter valid option".Length) / 2, Console.CursorTop);
-                                Console.WriteLine("Enter valid option");
-                                break;
+                            string optionsChoice = Console.ReadLine();
+                            Console.Clear();
+                            switch (optionsChoice)
+                            {
+                                case "1":
+                                    diff = true;
+                                    options = false;
+                                    break;
+                                case "2":
+                                    diff = false;
+                                    options = false;
+                                    break;
+                                case "3":
+                                    options = false;
+                                    break;
+                                default:
+                                    Console.SetCursorPosition((Console.WindowWidth - "Enter valid option".Length) / 2, Console.CursorTop);
+                                    Console.WriteLine("Enter valid option");
+                                    break;
+                            }
                         }
                         break;
                     case "3":

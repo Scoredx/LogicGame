@@ -11,13 +11,12 @@ namespace LogicGame
                 Console.SetWindowSize(30, 8); //setting cmd size
                 Console.BackgroundColor = ConsoleColor.DarkGray; //changing background color
                 Console.Clear();
-                Menu.MainMenu();
+                Menu.MainMenu(); //settings 
                 Console.Clear();
-                Console.SetWindowSize(30, 16);
+                Console.SetWindowSize(30, 14);
                 gameClass game = new gameClass(); //creating game object
                 game.Play(); // starting game 
             }
-           
         }
     }
     // Filip szewczyk 

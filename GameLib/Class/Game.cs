@@ -22,13 +22,11 @@ namespace LogicGame
             this.Rows = this.Matrix.GetLength(0);
             this.points = 0;
         }
-
         public void Play() //starting game 
         {
             bool Updated = true;
             do
             {
-
                 if(win) 
                 {
                     using (new library.Color(ConsoleColor.Yellow))
@@ -44,17 +42,10 @@ namespace LogicGame
                     }
                     return;
                 }
-
-                Console.SetCursorPosition((Console.WindowWidth - " WELCOME TO 2048".Length) / 2, Console.CursorTop);
-                Console.WriteLine(" WELCOME TO 2048");
-
-                Console.BackgroundColor = ConsoleColor.DarkGray;
-
                 if (Updated)
                 {
                     insertValue(); // puting new cell inside matrix
                 }
-
                 Display(); // displaying the matrix and text 
 
                 if (Lost()) // happens when there is no  movement 
@@ -72,15 +63,14 @@ namespace LogicGame
                     }
                     return;
                 }
-
                 Console.BackgroundColor = ConsoleColor.DarkGray;
                 Console.SetCursorPosition((Console.WindowWidth - "Use arrow keys to Play".Length) / 2, Console.CursorTop);
                 Console.WriteLine("Use arrow keys to Play");
                 Console.SetCursorPosition((Console.WindowWidth - "Press Ctrl-C to exit".Length) / 2, Console.CursorTop);
                 Console.WriteLine("Press Ctrl-C to Exit");
                 ConsoleKeyInfo input = Console.ReadKey(true);
+                Console.SetCursorPosition((Console.WindowWidth - "xxxxxx".Length), Console.CursorTop);
                 Console.WriteLine(input.Key.ToString());
-
                 switch (input.Key) //user movement input
                 {
                     case ConsoleKey.UpArrow:
@@ -98,7 +88,6 @@ namespace LogicGame
                     case ConsoleKey.RightArrow:
                         Updated = bUpdate(library.movDirection.Right);
                         break;
-
                     default:
                         Updated = false;
                         break;
@@ -106,7 +95,6 @@ namespace LogicGame
             }
             while (true);
         }
-
         private bool bUpdate(library.movDirection dir) //updates the matrix after user movement
         {
             ulong points;
@@ -127,7 +115,6 @@ namespace LogicGame
             }
             return true;
         }
-
         private void Display() // displaying the matrix and text 
         {
             Console.Clear();
@@ -165,16 +152,17 @@ namespace LogicGame
             }
             int Slot = rnd.Next(0, availableSlots.Count);
 
-            //diff settings 
-            if (!Menu.diff)
+            if (!Menu.diff) //diff settings 
+
             {
-                ulong cellValue = rnd.Next(0, 100) < 50 ? (ulong) 2 : (ulong) 4;
+                ulong cellValue = rnd.Next(0, 100) < 50 ? (ulong)2 : (ulong)4;
                 Matrix[availableSlots[Slot].Item1, availableSlots[Slot].Item2] = cellValue;
             }
             else
             {
                 Matrix[availableSlots[Slot].Item1, availableSlots[Slot].Item2] = 2;
             }
+            Console.WriteLine();
         }
     }
 }

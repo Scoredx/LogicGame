@@ -25,7 +25,6 @@ namespace GameLib
             Func<int, int> reverseDrop = isIncreasing ? new Func<int, int>(iIndex => iIndex + 1) : new Func<int, int>(iIndex => iIndex - 1);
             Func<ulong[,], int, int, ulong> Value = inRow ? new Func<ulong[,], int, int, ulong>((x, i, j) => x[i, j]) : new Func<ulong[,], int, int, ulong>((x, i, j) => x[j, i]);
             Func<int, bool> iCondition = index => Math.Min(iStart, iEnd) <= index && index <= Math.Max(iStart, iEnd);
-            
             Action<ulong[,], int, int, ulong> setValue = inRow ? new Action<ulong[,], int, int, ulong>((x, i, j, v) => x[i, j] = v) : new Action<ulong[,], int, int, ulong>((x, i, j, v) => x[j, i] = v);
 
             for (int i = 0; i<oCount; i++)
@@ -33,7 +32,6 @@ namespace GameLib
                 for (int j = iStart; iCondition(j); j = reverseDrop(j))
                 {
                     int newJ = j;
-
                     if (Value(board, i, j) == 0)
                     {
                         continue;
@@ -43,7 +41,6 @@ namespace GameLib
                         newJ = drop(newJ);
                     }
                     while (iCondition(newJ) && Value(board, i, newJ) == 0);
-
                         //merge matching pair 
                     if (iCondition(newJ) && Value(board, i, newJ) == Value(board, i, j))
                     {
@@ -68,7 +65,6 @@ namespace GameLib
             }
             return Updated;
         }
-
         public enum movDirection //movement 
         {
             Up,

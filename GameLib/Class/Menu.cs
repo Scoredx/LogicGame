@@ -7,11 +7,9 @@ namespace LogicGame
     {   
         //vars
         public static bool diff = true; // setting diff
-
         static void menuText()
         {
             Console.ForegroundColor = ConsoleColor.Black;
-
             Console.SetCursorPosition((Console.WindowWidth - " WELCOME TO 2048".Length) / 2, Console.CursorTop);
             Console.WriteLine(" WELCOME TO 2048");
             Console.SetCursorPosition((Console.WindowWidth - "      MENU     ".Length) / 2, Console.CursorTop);
@@ -37,8 +35,6 @@ namespace LogicGame
             Console.WriteLine("2.    HIGH    ");
             Console.SetCursorPosition((Console.WindowWidth - "3.      BACK   ".Length) / 2, Console.CursorTop);
             Console.WriteLine("3.    BACK   ");
-
-           
         }
         public static void MainMenu()
         {
@@ -56,7 +52,17 @@ namespace LogicGame
                     case "2":
                         //options
                         optionsText();
+                        Console.SetCursorPosition((Console.WindowWidth - "x".Length) / 2, Console.CursorTop);
                         string optionsChoice = Console.ReadLine();
+                        while (optionsChoice == "")
+                        {
+                            Console.Clear();
+                            Console.SetCursorPosition((Console.WindowWidth - "Enter valid option".Length) / 2, Console.CursorTop);
+                            Console.WriteLine("Enter valid option");
+                            optionsText();
+                            Console.SetCursorPosition((Console.WindowWidth - "x".Length) / 2, Console.CursorTop);
+                            optionsChoice = Console.ReadLine();
+                        }
                         Console.Clear();
                         switch (optionsChoice)
                         {
@@ -67,7 +73,7 @@ namespace LogicGame
                                 diff = false;
                                 break;
                             case "3":
-                                return;
+                                break;
                             default:
                                 Console.SetCursorPosition((Console.WindowWidth - "Enter valid option".Length) / 2, Console.CursorTop);
                                 Console.WriteLine("Enter valid option");

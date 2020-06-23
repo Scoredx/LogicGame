@@ -6,14 +6,18 @@ namespace LogicGame
     {
         static void Main(string[] args)
         {
-            Console.SetWindowSize(30, 8); //setting cmd size
-            Console.BackgroundColor = ConsoleColor.DarkGray; //changing background color
-            Console.Clear();
-            Menu.MainMenu();
-            Console.Clear();
-            Console.SetWindowSize(30, 16);
-            gameClass game = new gameClass(); //creating game object
-            game.Play(); // starting game 
+            while (true)
+            {
+                Console.SetWindowSize(30, 8); //setting cmd size
+                Console.BackgroundColor = ConsoleColor.DarkGray; //changing background color
+                Console.Clear();
+                Menu.MainMenu();
+                Console.Clear();
+                Console.SetWindowSize(30, 16);
+                gameClass game = new gameClass(); //creating game object
+                game.Play(); // starting game 
+            }
+           
         }
     }
     // Filip szewczyk 

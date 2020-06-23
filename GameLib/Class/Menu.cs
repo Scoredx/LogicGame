@@ -6,7 +6,7 @@ namespace LogicGame
     class Menu
     {   
         //vars
-        public static bool diff;
+        public static bool diff = true; // setting diff
 
         static void menuText()
         {
